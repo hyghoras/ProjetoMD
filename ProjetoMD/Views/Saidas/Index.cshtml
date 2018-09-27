@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjetoMD.MVC.Models.SaidasViewModel>
+
+@{
+    ViewBag.Title = "Saidas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Saidas</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar uma nova saida", "Adicionar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome_Funcionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+            @Html.ActionLink("Remover", "Remover", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
